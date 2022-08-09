@@ -23,6 +23,7 @@ def Parse_provider(record: dict):
                 value["tin_type"] = i["tin"]["type"].upper()
                 value["tin"] = i["tin"]["value"]
                 values.append(value)
+    csvwriter(values=values)
     return values
 
 

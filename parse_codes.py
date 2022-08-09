@@ -28,6 +28,7 @@ def Parse_codes(record: dict):
             value["billing_code_description"] = v
         print(value)
         values.append(value)
+    csvwriter(values=values)
     return values
 
 def csvwriter(values: list):
