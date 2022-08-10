@@ -13,7 +13,7 @@ def Parse_codes(record: dict):
     values = []
 
     for k, v in record.items():
-        #print(k, v)
+        
         if k == "negotiation_arrangement":
             value["negotiation_arrangement"] = v
         elif k == "billing_code_type_version":
