@@ -1,5 +1,4 @@
 import ijson, time, csv
-from functools import cache
 
 
 def providers():
@@ -9,7 +8,7 @@ def providers():
             values += Parse_provider(record=record)
     csvwriter(values)
 
-
+# parse value from each yielded record
 def Parse_provider(record: dict):
     value = {}
     values = []
@@ -26,7 +25,7 @@ def Parse_provider(record: dict):
     csvwriter(values=values)
     return values
 
-
+# Writes to CSV
 def csvwriter(values: list):
     print(values)
     filename = "Providers.csv"
@@ -38,8 +37,8 @@ def csvwriter(values: list):
         writer.writerows(values)
     return
 
-
-
+'''
 t1 = time.time()
 providers()
 print("Total time taken: ", time.time()-t1)
+'''

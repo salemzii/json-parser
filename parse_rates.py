@@ -8,6 +8,7 @@ def rates():
         for record in ijson.items(input_file, "in_network.item"):
             values += Parse_rates(record=record)
         csvwriter(values=values)
+        
 
 def Parse_rates(record: dict):
     value = {}
@@ -58,6 +59,8 @@ def csvwriter(values: list):
 
 
 
+'''
 t1 = time.time()
 rates()
 print("Total time taken: ", time.time()-t1)
+'''

@@ -47,7 +47,8 @@ def csvwriter(values: list):
     return
 
 
-
+'''
 t1 = time.time()
 codes()
 print("Total time taken: ", time.time()-t1)
+'''
