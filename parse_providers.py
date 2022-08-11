@@ -1,4 +1,4 @@
-import ijson, time, csv
+import ijson, csv
 
 
 def providers():

@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# rm RatesCSV.csv Providers.csv CodesCSV.csv Service_code_groupsCSV.csv && rm -r __pycache__
+
+
 # Distribution / packaging
 .Python
 build/
