@@ -1,3 +1,4 @@
+from optparse import Values
 import ijson,csv
 
 def service_codes():
@@ -6,16 +7,18 @@ def service_codes():
         for record in ijson.items(input_file, "in_network.item"):
             values.append(Parse_service_code(record=record))
         csvwriter(values)
+        
 
 
 def Parse_service_code(record: dict):
+    values = []
     for k, v in record.items():
         value = {}
         if k == "negotiated_rates":
             for i in v:
                 value["service_code"] = i["negotiated_prices"][0]["service_code"]
+        values.append(value)
     return value
-
 
 def csvwriter(values: list):
 

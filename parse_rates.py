@@ -34,12 +34,8 @@ def Parse_rates(record: dict):
                     pass
                 print(value)
                 values.append(value)
-    csvwriter(values=values)
+    
     return values
-
-
-
-
 
 def csvwriter(values: list):
   
