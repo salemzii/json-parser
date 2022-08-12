@@ -1,11 +1,11 @@
 import ijson,csv
 
-def codes():
+def codes(record: dict):
     values = []
     with open("Input_File.json", "rb") as input_file:
         for record in ijson.items(input_file, "in_network.item"):
             values += Parse_codes(record=record)
-        csvwriter(values=values)
+        codes_csvwriter(values=values)
 
 
 def Parse_codes(record: dict):
@@ -28,10 +28,10 @@ def Parse_codes(record: dict):
             value["billing_code_description"] = v
         print(value)
         values.append(value)
-    csvwriter(values=values)
+    #codes_csvwriter(values=values)
     return values
 
-def csvwriter(values: list):
+def codes_csvwriter(values: list):
     print(values)
     filename = "CodesCSV.csv"
     fields = ["billing_code","billing_code_type",

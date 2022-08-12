@@ -1,15 +1,9 @@
 import ijson, csv
 
 
-def providers():
-    values = []
-    with open("Input_File.json", "rb") as input_file:
-        for record in ijson.items(input_file, "provider_references.item"):
-            values += Parse_provider(record=record)
-    csvwriter(values)
-
 # parse value from each yielded record
 def Parse_provider(record: dict):
+    print(record)
     value = {}
     values = []
 
@@ -22,10 +16,11 @@ def Parse_provider(record: dict):
                 value["tin_type"] = i["tin"]["type"].upper()
                 value["tin"] = i["tin"]["value"]
                 values.append(value)
+    
     return values
 
 # Writes to CSV
-def csvwriter(values: list):
+def providers_csvwriter(values: list):
     print(values)
     filename = "Providers.csv"
     fields = ["provider_group_id","tin","tin_type","npi"]
@@ -35,9 +30,3 @@ def csvwriter(values: list):
         # writing data rows 
         writer.writerows(values)
     return
-
-'''
-t1 = time.time()
-providers()
-print("Total time taken: ", time.time()-t1)
-'''

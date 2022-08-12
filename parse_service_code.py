@@ -6,9 +6,7 @@ def service_codes():
     with open("Input_File.json", "rb") as input_file:
         for record in ijson.items(input_file, "in_network.item"):
             values.append(Parse_service_code(record=record))
-        csvwriter(values)
-        
-
+        service_codes_csvwriter(values)
 
 def Parse_service_code(record: dict):
     values = []
@@ -20,7 +18,7 @@ def Parse_service_code(record: dict):
         values.append(value)
     return value
 
-def csvwriter(values: list):
+def service_codes_csvwriter(values: list):
 
     filename = "Service_code_groupsCSV.csv"
     fields = ["service_code", "service_code_group"]
@@ -30,7 +28,7 @@ def csvwriter(values: list):
         # writing data rows 
         scg = 1
         for value in values:
-            for k, v in value.items():
+            for _, v in value.items():
                 for i in range(len(v)):
                     writer.writerow({"service_code": v[i], "service_code_group": scg})
             scg += 1
