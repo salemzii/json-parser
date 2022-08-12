@@ -1,12 +1,4 @@
-import ijson,csv
-
-def codes(record: dict):
-    values = []
-    with open("Input_File.json", "rb") as input_file:
-        for record in ijson.items(input_file, "in_network.item"):
-            values += Parse_codes(record=record)
-        codes_csvwriter(values=values)
-
+import csv
 
 def Parse_codes(record: dict):
     value = {}
@@ -26,9 +18,7 @@ def Parse_codes(record: dict):
             value["billing_code_type"] = v
         elif k == "description":
             value["billing_code_description"] = v
-        print(value)
         values.append(value)
-    #codes_csvwriter(values=values)
     return values
 
 def codes_csvwriter(values: list):
@@ -45,10 +35,3 @@ def codes_csvwriter(values: list):
         # writing data rows 
         writer.writerows(values)
     return
-
-
-'''
-t1 = time.time()
-codes()
-print("Total time taken: ", time.time()-t1)
-'''

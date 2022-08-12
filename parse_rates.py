@@ -1,14 +1,5 @@
 import ijson,csv
 
-
-def rates():
-    values = []
-    with open("Input_File.json", "rb") as input_file:
-        for record in ijson.items(input_file, "in_network.item"):
-            values += Parse_rates(record=record)
-        rates_csvwriter(values=values)
-
-
 def Parse_rates(record: dict):
     value = {}
     values = []
@@ -38,7 +29,7 @@ def Parse_rates(record: dict):
     return values
 
 def rates_csvwriter(values: list):
-  
+    print(values)
     filename = "RatesCSV.csv"
     fields = ["billing_code","billing_code_modifier",
     "billing_code_type_version",
@@ -51,11 +42,3 @@ def rates_csvwriter(values: list):
         # writing data rows 
         writer.writerows(values)
     return
-
-
-
-'''
-t1 = time.time()
-rates()
-print("Total time taken: ", time.time()-t1)
-'''

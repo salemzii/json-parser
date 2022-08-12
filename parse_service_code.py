@@ -1,12 +1,4 @@
-from optparse import Values
-import ijson,csv
-
-def service_codes():
-    values = []
-    with open("Input_File.json", "rb") as input_file:
-        for record in ijson.items(input_file, "in_network.item"):
-            values.append(Parse_service_code(record=record))
-        service_codes_csvwriter(values)
+import csv
 
 def Parse_service_code(record: dict):
     values = []
@@ -19,6 +11,7 @@ def Parse_service_code(record: dict):
     return value
 
 def service_codes_csvwriter(values: list):
+    print(values)
 
     filename = "Service_code_groupsCSV.csv"
     fields = ["service_code", "service_code_group"]

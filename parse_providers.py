@@ -1,9 +1,8 @@
-import ijson, csv
+import csv
 
 
 # parse value from each yielded record
 def Parse_provider(record: dict):
-    print(record)
     value = {}
     values = []
 

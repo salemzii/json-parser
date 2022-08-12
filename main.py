@@ -38,4 +38,4 @@ th2.start()
 th1.join()
 th2.join()
 
-print(f"Total time take: {time.time() - timer }")
+print(f"Total time taken: {time.time() - timer }")
