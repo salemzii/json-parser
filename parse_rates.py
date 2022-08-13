@@ -12,18 +12,22 @@ def Parse_rates(record: dict):
         elif k == "negotiated_rates":
             code = 1
             for i in v:
-                value["provider_references"] = i["provider_references"][0]
-                value["negotiated_rate"] = i["negotiated_prices"][0]["negotiated_rate"]
-                value["billing_class"] = i["negotiated_prices"][0]["billing_class"]
-                value["expiration_date"] = i["negotiated_prices"][0]["expiration_date"]
-                value["negotiated_type"] = i["negotiated_prices"][0]["negotiated_type"]
-                value["service_code_group"] = code
-                code += 1
                 try:
-                    value["billing_code_modifier"] = i["negotiated_prices"][0]["billing_code_modifier"][0]
+                    value["provider_references"] = i["provider_references"][0]
+                    value["negotiated_rate"] = i["negotiated_prices"][0]["negotiated_rate"]
+                    value["billing_class"] = i["negotiated_prices"][0]["billing_class"]
+                    value["expiration_date"] = i["negotiated_prices"][0]["expiration_date"]
+                    value["negotiated_type"] = i["negotiated_prices"][0]["negotiated_type"]
+                    value["service_code_group"] = code
+                    code += 1
+                    try:
+                        value["billing_code_modifier"] = i["negotiated_prices"][0]["billing_code_modifier"][0]
+                    except Exception as err:
+                        pass
+                    print(value)
                 except Exception as err:
+                    print("Encountered error parsing record")
                     pass
-                print(value)
                 values.append(value)
     
     return values

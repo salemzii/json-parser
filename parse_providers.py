@@ -11,11 +11,14 @@ def Parse_provider(record: dict):
             value["provider_group_id"] = v
         if k == "provider_groups":
             for i in v:
-                value["npi"] = i["npi"][0]
-                value["tin_type"] = i["tin"]["type"].upper()
-                value["tin"] = i["tin"]["value"]
-                values.append(value)
-    
+                try:
+                    value["npi"] = i["npi"][0]
+                    value["tin_type"] = i["tin"]["type"].upper()
+                    value["tin"] = i["tin"]["value"]
+                    values.append(value)
+                except Exception as err:
+                    print("Encountered empty npi list, moving to next record")
+                    pass
     return values
 
 # Writes to CSV
