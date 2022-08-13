@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 # rm RatesCSV.csv Providers.csv CodesCSV.csv Service_code_groupsCSV.csv && rm -r __pycache__
+# git reset HEAD 2022-07-01_United-HealthCare-Services--Inc-_Third-Party-Administrator_University-of-Missouri---Columbia_CSP-935-C638_in-network-rates.json Input_File.json
 
 
 # Distribution / packaging

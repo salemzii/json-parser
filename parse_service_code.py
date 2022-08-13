@@ -6,7 +6,11 @@ def Parse_service_code(record: dict):
         value = {}
         if k == "negotiated_rates":
             for i in v:
-                value["service_code"] = i["negotiated_prices"][0]["service_code"]
+                try:
+                    value["service_code"] = i["negotiated_prices"][0]["service_code"]
+                except Exception as err:
+                    print("Encountered error accessing record")
+                    pass
         values.append(value)
     return value
 
