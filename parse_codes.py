@@ -34,4 +34,7 @@ def codes_csvwriter(values: list):
         writer.writeheader() 
         # writing data rows 
         writer.writerows(values)
+
+    del(values)
+    print("Completed operation for codes.csv")
     return

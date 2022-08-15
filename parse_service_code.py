@@ -16,7 +16,6 @@ def Parse_service_code(record: dict):
 
 def service_codes_csvwriter(values: list):
     print(values)
-
     filename = "Service_code_groupsCSV.csv"
     fields = ["service_code", "service_code_group"]
     with open(filename, "a+") as rates:
@@ -29,4 +28,6 @@ def service_codes_csvwriter(values: list):
                 for i in range(len(v)):
                     writer.writerow({"service_code": v[i], "service_code_group": scg})
             scg += 1
+    del(values)
+    print("Completed operation for rates.csv")
     return

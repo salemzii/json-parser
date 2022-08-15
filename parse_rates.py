@@ -33,7 +33,6 @@ def Parse_rates(record: dict):
     return values
 
 def rates_csvwriter(values: list):
-    print(values)
     filename = "RatesCSV.csv"
     fields = ["billing_code","billing_code_modifier",
     "billing_code_type_version",
@@ -45,4 +44,6 @@ def rates_csvwriter(values: list):
         writer.writeheader() 
         # writing data rows 
         writer.writerows(values)
+    del(values)
+    print("Completed operation for rates.csv")
     return

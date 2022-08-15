@@ -24,6 +24,7 @@ def Parse_provider(record: dict):
 # Writes to CSV
 def providers_csvwriter(values: list):
     print(values)
+    
     filename = "Providers.csv"
     fields = ["provider_group_id","tin","tin_type","npi"]
     with open(filename, "w") as providers:
@@ -31,4 +32,6 @@ def providers_csvwriter(values: list):
         writer.writeheader() 
         # writing data rows 
         writer.writerows(values)
+    del(values)
+    print("Completed operation for providers.csv")
     return
